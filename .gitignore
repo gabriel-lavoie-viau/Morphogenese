@@ -1,6 +1,7 @@
 # general ignores
 
 **/__pycache__/
+**/__init__.py
 **/*.pt
 **/*.ipynb
 
@@ -14,3 +15,7 @@ face_generator/.git/*
 
 main/recorded/*
 main/*.wav
+
+# melody_generator ignores
+
+
