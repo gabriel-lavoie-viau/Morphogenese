@@ -1,0 +1,15 @@
+
+
+I think you can find the solution you are looking for here.
+
+    Open the Anaconda prompt
+    Activate the environment you are interested in
+    Type conda env export > environment.yml
+
+In the yml you will find all the dependencies and you can use it to create a new virtual environment as a copy of the current one.
+
+For example, on the new/rebooted machine, you can do:
+
+conda env create -f environment.yml
+
+

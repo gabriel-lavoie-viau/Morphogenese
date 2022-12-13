@@ -1,0 +1,22 @@
+https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html
+
+https://docs.nvidia.com/deploy/cuda-compatibility/index.html
+https://docs.nvidia.com/deeplearning/cudnn/support-matrix/index.html
+https://www.tensorflow.org/install/source?hl=fr#gpu
+https://www.tensorflow.org/install/gpu
+
+1. Sleep
+2. Have time
+3. Make yourself a coffee
+4. Install Ubuntu 20.04 normally
+5. Disable UEFI Secure Boot? (not sure, maybe try not too)
+6. Use this guide : https://towardsdatascience.com/installing-tensorflow-gpu-in-ubuntu-20-04-4ee3ca4cb75d
+7. Don't worry about installing older nvidia driver, install the tested nvidia driver from software & update
+8. Don't try installing NVIDIA driver or CUDA yourself, let ubuntu and package manager do it
+
+Configuration:
+NVIDIA Driver	510.47.03
+CUDA		11.6
+CUDA Toolkit	10.1
+tf 		2.2.0 or 2.3.0
+python 	3.7
