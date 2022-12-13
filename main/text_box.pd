@@ -1,0 +1,37 @@
+#N canvas 376 377 427 381 10;
+#X obj 43 150 text define \$0-text;
+#X obj 30 30 bng 50 250 50 0 \$0-click empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 80 30 bng 50 250 50 0 \$0-click empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 130 30 bng 50 250 50 0 \$0-click empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 180 30 bng 50 250 50 0 \$0-click empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 31 31 cnv 15 198 48 empty \$0-canvas asdasd 20 12 0 14 -262144
+-1 0;
+#X obj 43 104 r \$0-click;
+#X obj 154 173 route updated;
+#X msg 154 219 0;
+#X obj 154 242 text get \$0-text;
+#X obj 154 265 list prepend label;
+#X obj 154 288 list trim;
+#X obj 154 311 s \$0-canvas;
+#X msg 43 127 clear \, click;
+#X obj 154 196 t b b;
+#X msg 271 219 close;
+#X obj 271 242 s \$0-text;
+#X obj 45 313 outlet;
+#X connect 0 1 7 0;
+#X connect 6 0 13 0;
+#X connect 7 0 14 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 9 0 17 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 13 0 0 0;
+#X connect 14 0 8 0;
+#X connect 14 1 15 0;
+#X connect 15 0 16 0;
+#X coords 0 -1 1 1 200 50 2 30 30;

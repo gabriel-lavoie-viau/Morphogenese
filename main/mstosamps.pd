@@ -1,0 +1,17 @@
+#N canvas 2358 158 350 241 12;
+#X obj 15 162 * 16;
+#X msg 40 113 16000;
+#X obj 40 138 / 1000;
+#X obj 40 86 loadbang;
+#X text 223 39 Sample rate;
+#X obj 15 41 inlet;
+#X obj 15 187 outlet;
+#X text 56 41 Milliseconds;
+#X text 64 186 Num Samples;
+#X obj 181 39 inlet;
+#X connect 0 0 6 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 1;
+#X connect 3 0 1 0;
+#X connect 5 0 0 0;
+#X connect 9 0 2 0;

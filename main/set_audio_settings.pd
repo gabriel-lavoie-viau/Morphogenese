@@ -1,0 +1,21 @@
+#N canvas 2573 172 727 183 12;
+#X obj 99 121 s pd;
+#X obj 14 41 t b b;
+#X msg 14 106 \; pd dsp 1;
+#X obj 14 16 inlet;
+#X msg 559 11 audio-properties;
+#X obj 559 36 s pd;
+#X obj 559 68 r pd;
+#X obj 559 121 print;
+#X obj 559 93 route audio-dialog;
+#X msg 99 80 audio-dialog 4 0 0 0 2 0 0 0 4 0 0 0 2 0 0 0 48000 25
+-1 1024;
+#X obj 14 65 delay 10000;
+#X connect 1 0 10 0;
+#X connect 1 1 9 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 6 0 8 0;
+#X connect 8 0 7 0;
+#X connect 9 0 0 0;
+#X connect 10 0 2 0;

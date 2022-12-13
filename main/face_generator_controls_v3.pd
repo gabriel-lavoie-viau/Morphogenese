@@ -1,0 +1,1036 @@
+#N canvas 345 96 1313 1095 12;
+#X obj 677 291 hsl 200 15 0 1 0 0 empty empty Jitter_speed -2 -8 0
+10 -260097 -1 -1 0 1;
+#X obj 677 408 hsl 200 15 0 1 0 0 empty empty Jitter_amplitude -2 -8
+0 10 -260097 -1 -1 0 1;
+#X obj 677 177 hsl 200 15 0 1 0 0 empty empty User_vs_dataset -2 -8
+0 10 -260097 -1 -1 0 1;
+#X obj 318 385 bng 15 250 50 0 empty empty Go_to_random_user_face 17
+7 0 10 -260097 -1 -1;
+#X obj 318 503 bng 15 250 50 0 empty empty Go_to_random_dataset_face
+17 7 0 10 -262144 -1 -1;
+#X msg 674 833 /jitter_speed \$1;
+#X obj 992 865 list prepend /directions;
+#X obj 992 913 list trim;
+#X obj 318 543 bng 15 250 50 0 empty empty Save_result_to_dataset_faces
+17 7 0 10 -262144 -1 -1;
+#X floatatom 318 252 5 0 0 1 Go_to_user_face_x - -;
+#X floatatom 318 480 5 0 0 1 Go_to_dataset_face_x - -;
+#X msg 318 784 /goto_user_face \$1;
+#X msg 318 831 /goto_dataset_face \$1;
+#X msg 674 809 /user_vs_dataset \$1;
+#X msg 674 857 /jitter_amplitude \$1;
+#X msg 318 563 0;
+#X msg 318 901 /save_face \$1;
+#X obj 318 405 bng 15 250 50 0 empty empty Encode_&_save_detected_face_to_user_faces
+17 7 0 10 -260097 -1 -1;
+#X msg 318 425 1;
+#X msg 318 807 /goto_rdm_user_face;
+#X msg 318 855 /goto_rdm_dataset_face;
+#X obj 318 523 bng 15 250 50 0 empty empty Generate_random_dataset_face
+17 7 0 10 -260097 -1 -1;
+#X msg 318 878 /generate_rdm_dataset_face;
+#X text 316 230 USER-------------------------------;
+#X text 316 458 DATASET----------------------------;
+#X text 672 62 RESULT-----------------------------;
+#X obj 992 727 text_box;
+#X msg 992 891 /save_directions \$1;
+#X obj 318 1049 t a;
+#X obj 318 1074 outlet;
+#X obj 12 410 pattr/gStorage face_generator;
+#X obj 12 12 inlet;
+#X floatatom 12 37 5 0 0 1 State - -;
+#N canvas 0 69 450 300 load_presets 0;
+#X obj 28 53 hcs/folder_list ./;
+#X msg 28 78 readpath \$1Presets/presets_face_generator;
+#X obj 28 28 loadbang;
+#X obj 28 103 outlet;
+#X obj 112 29 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 0 0;
+#X connect 4 0 0 0;
+#X restore 134 382 pd load_presets;
+#X obj 12 246 line 0;
+#X obj 992 14 inlet;
+#X floatatom 992 108 5 0 0 1 Output_RMS - -;
+#X text 991 180 DIRECTION----------------------;
+#N canvas 2426 162 1083 888 all_directions 0;
+#X obj 16 124 hsl 200 15 0 1 0 0 empty empty Eyes_Openness -2 -8 0
+10 -262144 -1 -1 9950 1;
+#X obj 16 92 hsl 200 15 0 1 0 0 empty empty In_awe -2 -8 0 10 -262144
+-1 -1 9950 1;
+#X msg 13 477 eye_openness \$1;
+#X msg 13 454 in_awe \$1;
+#X obj 80 764 * 40;
+#X obj 80 789 - 20;
+#X obj 13 740 unpack s f;
+#X obj 13 815 pack s f;
+#X obj 228 92 hsl 200 15 0 1 0 0 empty empty background_blur -2 -8
+0 10 -262144 -1 -1 9950 1;
+#X obj 228 123 hsl 200 15 0 1 0 0 empty empty bright_bg_vs_fg -2 -8
+0 10 -262144 -1 -1 9950 1;
+#X obj 228 153 hsl 200 15 0 1 0 0 empty empty bald -2 -8 0 10 -262144
+-1 -1 9950 1;
+#X obj 228 184 hsl 200 15 0 1 0 0 empty empty big_smile -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X obj 228 216 hsl 200 15 0 1 0 0 empty empty boyishness -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X obj 228 247 hsl 200 15 0 1 0 0 empty empty caricature_smile -2 -8
+0 10 -262144 -1 -1 9950 1;
+#X obj 228 277 hsl 200 15 0 1 0 0 empty empty curly_hair -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X obj 228 308 hsl 200 15 0 1 0 0 empty empty dark_bg_shiny_hair -2
+-8 0 10 -262144 -1 -1 9950 1;
+#X obj 228 340 hsl 200 15 0 1 0 0 empty empty dark_hair_and_light_pos
+-2 -8 0 10 -262144 -1 -1 9950 1;
+#X obj 228 371 hsl 200 15 0 1 0 0 empty empty dark_hair -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X obj 228 401 hsl 200 15 0 1 0 0 empty empty disgusted -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X obj 228 432 hsl 200 15 0 1 0 0 empty empty displeased -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X msg 225 455 background_blur \$1;
+#X msg 225 478 bright_bg_vs_fg \$1;
+#X msg 225 501 bald \$1;
+#X msg 225 524 big_smile \$1;
+#X msg 225 547 boyishness \$1;
+#X msg 225 570 caricature_smile \$1;
+#X msg 225 593 curly_hair \$1;
+#X msg 225 616 dark_bg_shiny_hair \$1;
+#X msg 225 639 dark_hair_and_light_pos \$1;
+#X msg 225 662 dark_hair \$1;
+#X msg 226 686 disgusted \$1;
+#X msg 225 708 displeased \$1;
+#X obj 440 92 hsl 200 15 0 1 0 0 empty empty elderly_woman -2 -8 0
+10 -262144 -1 -1 9950 1;
+#X obj 440 123 hsl 200 15 0 1 0 0 empty empty eye_wrinkles -2 -8 0
+10 -262144 -1 -1 9950 1;
+#X obj 440 153 hsl 200 15 0 1 0 0 empty empty eyebrow_thickness -2
+-8 0 10 -262144 -1 -1 9950 1;
+#X obj 440 184 hsl 200 15 0 1 0 0 empty empty face_roundness -2 -8
+0 10 -262144 -1 -1 9950 1;
+#X obj 440 216 hsl 200 15 0 1 0 0 empty empty fearful_eyes -2 -8 0
+10 -262144 -1 -1 9950 1;
+#X obj 440 247 hsl 200 15 0 1 0 0 empty empty frizzy_hair -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X obj 440 277 hsl 200 15 0 1 0 0 empty empty hairline -2 -8 0 10 -262144
+-1 -1 9950 1;
+#X obj 440 308 hsl 200 15 0 1 0 0 empty empty happy_frizzy_hair -2
+-8 0 10 -262144 -1 -1 9950 1;
+#X obj 440 340 hsl 200 15 0 1 0 0 empty empty happy_elderly_lady -2
+-8 0 10 -262144 -1 -1 9950 1;
+#X obj 440 371 hsl 200 15 0 1 0 0 empty empty head_angle_up -2 -8 0
+10 -262144 -1 -1 9950 1;
+#X obj 440 401 hsl 200 15 0 1 0 0 empty empty huge_grin -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X obj 440 432 hsl 200 15 0 1 0 0 empty empty large_jaw -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X msg 437 455 elderly_woman \$1;
+#X msg 437 478 eye_wrinkles \$1;
+#X msg 437 501 eyebrow_thickness \$1;
+#X msg 437 524 face_roundness \$1;
+#X msg 437 547 fearful_eyes \$1;
+#X msg 437 570 frizzy_hair \$1;
+#X msg 437 593 hairline \$1;
+#X msg 437 616 happy_frizzy_hair \$1;
+#X msg 437 639 happy_elderly_lady \$1;
+#X msg 437 662 head_angle_up \$1;
+#X msg 437 685 huge_grin \$1;
+#X msg 437 708 large_jaw \$1;
+#X obj 651 92 hsl 200 15 0 1 0 0 empty empty light_lr -2 -8 0 10 -262144
+-1 -1 9950 1;
+#X obj 651 123 hsl 200 15 0 1 0 0 empty empty light_UD -2 -8 0 10 -262144
+-1 -1 9950 1;
+#X obj 651 153 hsl 200 15 0 1 0 0 empty empty lipstick_and_age -2 -8
+0 10 -262144 -1 -1 9950 1;
+#X obj 651 184 hsl 200 15 0 1 0 0 empty empty lipstick -2 -8 0 10 -262144
+-1 -1 9950 1;
+#X obj 651 216 hsl 200 15 0 1 0 0 empty empty Makeup -2 -8 0 10 -262144
+-1 -1 9950 1;
+#X obj 651 247 hsl 200 15 0 1 0 0 empty empty Makeup2 -2 -8 0 10 -262144
+-1 -1 9950 1;
+#X obj 651 277 hsl 200 15 0 1 0 0 empty empty mascara_vs_beard -2 -8
+0 10 -262144 -1 -1 9950 1;
+#X obj 651 308 hsl 200 15 0 1 0 0 empty empty nose_length -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X obj 651 340 hsl 200 15 0 1 0 0 empty empty overexposed -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X obj 651 371 hsl 200 15 0 1 0 0 empty empty scary_eyes -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X obj 651 401 hsl 200 15 0 1 0 0 empty empty screaming -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X obj 651 432 hsl 200 15 0 1 0 0 empty empty short_face -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X obj 863 92 hsl 200 15 0 1 0 0 empty empty show_front_teeth -2 -8
+0 10 -262144 -1 -1 9950 1;
+#X obj 863 123 hsl 200 15 0 1 0 0 empty empty smile -2 -8 0 10 -262144
+-1 -1 9950 1;
+#X obj 863 153 hsl 200 15 0 1 0 0 empty empty smile2 -2 -8 0 10 -262144
+-1 -1 9950 1;
+#X obj 863 184 hsl 200 15 0 1 0 0 empty empty straight_bowl_cut -2
+-8 0 10 -262144 -1 -1 9950 1;
+#X obj 863 216 hsl 200 15 0 1 0 0 empty empty sunlight_in_face -2 -8
+0 10 -262144 -1 -1 9950 1;
+#X obj 863 247 hsl 200 15 0 1 0 0 empty empty trimmed_beard -2 -8 0
+10 -262144 -1 -1 9950 1;
+#X obj 863 277 hsl 200 15 0 1 0 0 empty empty white_hair -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X obj 863 308 hsl 200 15 0 1 0 0 empty empty wrinkles -2 -8 0 10 -262144
+-1 -1 9950 1;
+#X obj 863 340 hsl 200 15 0 1 0 0 empty empty gender_keep_age -2 -8
+0 10 -262144 -1 -1 9950 1;
+#X obj 863 371 hsl 200 15 0 1 0 0 empty empty rotate_keep_gender -2
+-8 0 10 -262144 -1 -1 9950 1;
+#X obj 863 401 hsl 200 15 0 1 0 0 empty empty gender_keep_geometry
+-2 -8 0 10 -262144 -1 -1 9950 1;
+#X obj 863 432 hsl 200 15 0 1 0 0 empty empty age_keep_lighting -2
+-8 0 10 -262144 -1 -1 9950 1;
+#X msg 648 455 light_lr \$1;
+#X msg 648 478 light_UD \$1;
+#X msg 648 501 lipstick_and_age \$1;
+#X msg 648 524 lipstick \$1;
+#X msg 648 547 Makeup \$1;
+#X msg 648 570 Makeup2 \$1;
+#X msg 648 593 mascara_vs_beard \$1;
+#X msg 648 616 nose_length \$1;
+#X msg 648 639 overexposed \$1;
+#X msg 648 662 scary_eyes \$1;
+#X msg 648 685 screaming \$1;
+#X msg 648 708 short_face \$1;
+#X msg 860 455 show_front_teeth \$1;
+#X msg 860 478 smile \$1;
+#X msg 860 501 smile2 \$1;
+#X msg 860 524 straight_bowl_cut \$1;
+#X msg 860 547 sunlight_in_face \$1;
+#X msg 860 570 trimmed_beard \$1;
+#X msg 860 593 white_hair \$1;
+#X msg 860 616 wrinkles \$1;
+#X msg 860 639 gender_keep_age \$1;
+#X msg 860 662 rotate_keep_gender \$1;
+#X msg 860 685 gender_keep_geometry \$1;
+#X msg 860 708 age_keep_lighting \$1;
+#X obj 16 153 hsl 200 15 0 1 0 0 empty empty background_keep_geometry
+-2 -8 0 10 -262144 -1 -1 9950 1;
+#X obj 16 184 hsl 200 15 0 1 0 0 empty empty hat_keep_lighting -2 -8
+0 10 -262144 -1 -1 9950 1;
+#X obj 16 214 hsl 200 15 0 1 0 0 empty empty just_lighting1 -2 -8 0
+10 -262144 -1 -1 9950 1;
+#X obj 16 245 hsl 200 15 0 1 0 0 empty empty just_lighting2 -2 -8 0
+10 -262144 -1 -1 9950 1;
+#X obj 16 277 hsl 200 15 0 1 0 0 empty empty age_keep_lighting2 -2
+-8 0 10 -262144 -1 -1 9950 1;
+#X obj 16 308 hsl 200 15 0 1 0 0 empty empty keep_lighting -2 -8 0
+10 -262144 -1 -1 9950 1;
+#X obj 16 338 hsl 200 15 0 1 0 0 empty empty hair_color_keep_geom -2
+-8 0 10 -262144 -1 -1 9950 1;
+#X obj 16 369 hsl 200 15 0 1 0 0 empty empty hair_length_keep_color
+-2 -8 0 10 -262144 -1 -1 9950 1;
+#X obj 16 401 hsl 200 15 0 1 0 0 empty empty light_dir -2 -8 0 10 -262144
+-1 -1 9950 1;
+#X obj 16 432 hsl 200 15 0 1 0 0 empty empty light_position -2 -8 0
+10 -262144 -1 -1 9950 1;
+#X msg 13 500 background_keep_geometry \$1;
+#X msg 13 523 hat_keep_lighting \$1;
+#X msg 13 546 just_lighting1 \$1;
+#X msg 13 569 just_lighting2 \$1;
+#X msg 13 592 age_keep_lighting2 \$1;
+#X msg 13 615 keep_lighting \$1;
+#X msg 13 638 hair_color_keep_geom \$1;
+#X msg 13 661 hair_length_keep_color \$1;
+#X msg 13 684 light_dir \$1;
+#X msg 13 707 light_position \$1;
+#X obj 860 31 loadbang;
+#X msg 860 56 0.5;
+#X obj 648 30 loadbang;
+#X msg 648 55 0.5;
+#X obj 437 30 loadbang;
+#X msg 437 55 0.5;
+#X obj 225 30 loadbang;
+#X msg 225 55 0.5;
+#X obj 13 31 loadbang;
+#X msg 13 56 0.5;
+#X text 12 8 DIRECTION----------------------;
+#X obj 13 853 outlet;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 6 0;
+#X connect 3 0 6 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 1;
+#X connect 6 0 7 0;
+#X connect 6 1 4 0;
+#X connect 7 0 135 0;
+#X connect 8 0 20 0;
+#X connect 9 0 21 0;
+#X connect 10 0 22 0;
+#X connect 11 0 23 0;
+#X connect 12 0 24 0;
+#X connect 13 0 25 0;
+#X connect 14 0 26 0;
+#X connect 15 0 27 0;
+#X connect 16 0 28 0;
+#X connect 17 0 29 0;
+#X connect 18 0 30 0;
+#X connect 19 0 31 0;
+#X connect 20 0 6 0;
+#X connect 21 0 6 0;
+#X connect 22 0 6 0;
+#X connect 23 0 6 0;
+#X connect 24 0 6 0;
+#X connect 25 0 6 0;
+#X connect 26 0 6 0;
+#X connect 27 0 6 0;
+#X connect 28 0 6 0;
+#X connect 29 0 6 0;
+#X connect 30 0 6 0;
+#X connect 31 0 6 0;
+#X connect 32 0 44 0;
+#X connect 33 0 45 0;
+#X connect 34 0 46 0;
+#X connect 35 0 47 0;
+#X connect 36 0 48 0;
+#X connect 37 0 49 0;
+#X connect 38 0 50 0;
+#X connect 39 0 51 0;
+#X connect 40 0 52 0;
+#X connect 41 0 53 0;
+#X connect 42 0 54 0;
+#X connect 43 0 55 0;
+#X connect 44 0 6 0;
+#X connect 45 0 6 0;
+#X connect 46 0 6 0;
+#X connect 47 0 6 0;
+#X connect 48 0 6 0;
+#X connect 49 0 6 0;
+#X connect 50 0 6 0;
+#X connect 51 0 6 0;
+#X connect 52 0 6 0;
+#X connect 53 0 6 0;
+#X connect 54 0 6 0;
+#X connect 55 0 6 0;
+#X connect 56 0 80 0;
+#X connect 57 0 81 0;
+#X connect 58 0 82 0;
+#X connect 59 0 83 0;
+#X connect 60 0 84 0;
+#X connect 61 0 85 0;
+#X connect 62 0 86 0;
+#X connect 63 0 87 0;
+#X connect 64 0 88 0;
+#X connect 65 0 89 0;
+#X connect 66 0 90 0;
+#X connect 67 0 91 0;
+#X connect 68 0 92 0;
+#X connect 69 0 93 0;
+#X connect 70 0 94 0;
+#X connect 71 0 95 0;
+#X connect 72 0 96 0;
+#X connect 73 0 97 0;
+#X connect 74 0 98 0;
+#X connect 75 0 99 0;
+#X connect 76 0 100 0;
+#X connect 77 0 101 0;
+#X connect 78 0 102 0;
+#X connect 79 0 103 0;
+#X connect 80 0 6 0;
+#X connect 81 0 6 0;
+#X connect 82 0 6 0;
+#X connect 83 0 6 0;
+#X connect 84 0 6 0;
+#X connect 85 0 6 0;
+#X connect 86 0 6 0;
+#X connect 87 0 6 0;
+#X connect 88 0 6 0;
+#X connect 89 0 6 0;
+#X connect 90 0 6 0;
+#X connect 91 0 6 0;
+#X connect 92 0 6 0;
+#X connect 93 0 6 0;
+#X connect 94 0 6 0;
+#X connect 95 0 6 0;
+#X connect 96 0 6 0;
+#X connect 97 0 6 0;
+#X connect 98 0 6 0;
+#X connect 99 0 6 0;
+#X connect 100 0 6 0;
+#X connect 101 0 6 0;
+#X connect 102 0 6 0;
+#X connect 103 0 6 0;
+#X connect 104 0 114 0;
+#X connect 105 0 115 0;
+#X connect 106 0 116 0;
+#X connect 107 0 117 0;
+#X connect 108 0 118 0;
+#X connect 109 0 119 0;
+#X connect 110 0 120 0;
+#X connect 111 0 121 0;
+#X connect 112 0 122 0;
+#X connect 113 0 123 0;
+#X connect 114 0 6 0;
+#X connect 115 0 6 0;
+#X connect 116 0 6 0;
+#X connect 117 0 6 0;
+#X connect 118 0 6 0;
+#X connect 119 0 6 0;
+#X connect 120 0 6 0;
+#X connect 121 0 6 0;
+#X connect 122 0 6 0;
+#X connect 123 0 6 0;
+#X connect 124 0 125 0;
+#X connect 125 0 79 0;
+#X connect 125 0 78 0;
+#X connect 125 0 77 0;
+#X connect 125 0 76 0;
+#X connect 125 0 75 0;
+#X connect 125 0 74 0;
+#X connect 125 0 73 0;
+#X connect 125 0 72 0;
+#X connect 125 0 71 0;
+#X connect 125 0 70 0;
+#X connect 125 0 69 0;
+#X connect 125 0 68 0;
+#X connect 126 0 127 0;
+#X connect 127 0 56 0;
+#X connect 127 0 57 0;
+#X connect 127 0 58 0;
+#X connect 127 0 59 0;
+#X connect 127 0 60 0;
+#X connect 127 0 61 0;
+#X connect 127 0 62 0;
+#X connect 127 0 63 0;
+#X connect 127 0 64 0;
+#X connect 127 0 65 0;
+#X connect 127 0 66 0;
+#X connect 127 0 67 0;
+#X connect 128 0 129 0;
+#X connect 129 0 32 0;
+#X connect 129 0 33 0;
+#X connect 129 0 34 0;
+#X connect 129 0 35 0;
+#X connect 129 0 36 0;
+#X connect 129 0 37 0;
+#X connect 129 0 38 0;
+#X connect 129 0 39 0;
+#X connect 129 0 40 0;
+#X connect 129 0 41 0;
+#X connect 129 0 42 0;
+#X connect 129 0 43 0;
+#X connect 130 0 131 0;
+#X connect 131 0 8 0;
+#X connect 131 0 9 0;
+#X connect 131 0 10 0;
+#X connect 131 0 11 0;
+#X connect 131 0 12 0;
+#X connect 131 0 13 0;
+#X connect 131 0 14 0;
+#X connect 131 0 15 0;
+#X connect 131 0 16 0;
+#X connect 131 0 17 0;
+#X connect 131 0 18 0;
+#X connect 131 0 19 0;
+#X connect 132 0 133 0;
+#X connect 133 0 1 0;
+#X connect 133 0 0 0;
+#X connect 133 0 104 0;
+#X connect 133 0 105 0;
+#X connect 133 0 106 0;
+#X connect 133 0 107 0;
+#X connect 133 0 108 0;
+#X connect 133 0 109 0;
+#X connect 133 0 110 0;
+#X connect 133 0 111 0;
+#X connect 133 0 112 0;
+#X connect 133 0 113 0;
+#X restore 992 231 pd all_directions;
+#N canvas 79 178 1708 958 usefull_directions 0;
+#X obj 205 161 hsl 200 15 0 1.5 0 0 empty empty Eyes_Openness -2 -8
+0 10 -261682 -1 -1 6633 1;
+#X obj 625 127 hsl 200 15 0 1 0 0 empty empty In_awe -2 -8 0 10 -204800
+-1 -1 9950 1;
+#X msg 202 180 eye_openness \$1;
+#X msg 622 489 in_awe \$1;
+#X obj 689 799 * 40;
+#X obj 689 824 - 20;
+#X obj 622 775 unpack s f;
+#X obj 622 850 pack s f;
+#X obj 837 219 hsl 200 15 0 1 0 0 empty empty big_smile -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X obj 837 282 hsl 200 15 0 1 0 0 empty empty caricature_smile -2 -8
+0 10 -262144 -1 -1 9950 1;
+#X obj 837 436 hsl 200 15 0 1 0 0 empty empty disgusted -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X obj 837 467 hsl 200 15 0 1 0 0 empty empty displeased -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X msg 834 559 big_smile \$1;
+#X msg 834 605 caricature_smile \$1;
+#X msg 835 721 disgusted \$1;
+#X msg 834 743 displeased \$1;
+#X obj 1049 406 hsl 200 15 0 1 0 0 empty empty head_angle_up -2 -8
+0 10 -262144 -1 -1 9950 1;
+#X msg 1046 697 head_angle_up \$1;
+#X obj 1260 127 hsl 200 15 0 1 0 0 empty empty light_lr -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X obj 1260 158 hsl 200 15 0 1 0 0 empty empty light_UD -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X obj 1260 436 hsl 200 15 0 1 0 0 empty empty screaming -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X obj 1472 127 hsl 200 15 0 1 0 0 empty empty show_front_teeth -2
+-8 0 10 -262144 -1 -1 9950 1;
+#X obj 1472 158 hsl 200 15 0 1 0 0 empty empty smile -2 -8 0 10 -262144
+-1 -1 9950 1;
+#X obj 1472 188 hsl 200 15 0 1 0 0 empty empty smile2 -2 -8 0 10 -262144
+-1 -1 9950 1;
+#X obj 1472 251 hsl 200 15 0 1 0 0 empty empty sunlight_in_face -2
+-8 0 10 -262144 -1 -1 9950 1;
+#X obj 1472 375 hsl 200 15 0 1 0 0 empty empty gender_keep_age -2 -8
+0 10 -262144 -1 -1 9950 1;
+#X obj 1472 406 hsl 200 15 0 1 0 0 empty empty rotate_keep_gender -2
+-8 0 10 -262144 -1 -1 9950 1;
+#X obj 1472 436 hsl 200 15 0 1 0 0 empty empty gender_keep_geometry
+-2 -8 0 10 -262144 -1 -1 9950 1;
+#X obj 1472 467 hsl 200 15 0 1 0 0 empty empty age_keep_lighting -2
+-8 0 10 -262144 -1 -1 9950 1;
+#X msg 1257 490 light_lr \$1;
+#X msg 1257 513 light_UD \$1;
+#X msg 1257 720 screaming \$1;
+#X msg 1469 490 show_front_teeth \$1;
+#X msg 1469 513 smile \$1;
+#X msg 1469 536 smile2 \$1;
+#X msg 1469 582 sunlight_in_face \$1;
+#X msg 1469 674 gender_keep_age \$1;
+#X msg 1469 697 rotate_keep_gender \$1;
+#X msg 1469 720 gender_keep_geometry \$1;
+#X msg 1469 743 age_keep_lighting \$1;
+#X obj 625 249 hsl 200 15 0 1 0 0 empty empty just_lighting1 -2 -8
+0 10 -262144 -1 -1 9950 1;
+#X obj 625 280 hsl 200 15 0 1 0 0 empty empty just_lighting2 -2 -8
+0 10 -262144 -1 -1 9950 1;
+#X obj 625 343 hsl 200 15 0 1 0 0 empty empty keep_lighting -2 -8 0
+10 -262144 -1 -1 9950 1;
+#X obj 625 436 hsl 200 15 0 1 0 0 empty empty light_dir -2 -8 0 10
+-262144 -1 -1 9950 1;
+#X obj 625 467 hsl 200 15 0 1 0 0 empty empty light_position -2 -8
+0 10 -262144 -1 -1 9950 1;
+#X msg 622 581 just_lighting1 \$1;
+#X msg 622 604 just_lighting2 \$1;
+#X msg 622 650 keep_lighting \$1;
+#X msg 622 719 light_dir \$1;
+#X msg 622 742 light_position \$1;
+#X obj 1469 66 loadbang;
+#X msg 1469 91 0.5;
+#X obj 1257 65 loadbang;
+#X msg 1257 90 0.5;
+#X obj 1046 65 loadbang;
+#X msg 1046 90 0.5;
+#X obj 834 65 loadbang;
+#X msg 834 90 0.5;
+#X obj 622 66 loadbang;
+#X msg 622 91 0.5;
+#X obj 202 66 pattr/gsfloat face_generator eyes_openness;
+#X obj 202 17 loadbang;
+#X msg 202 42 0.5;
+#X obj 85 769 * 40;
+#X obj 85 794 - 20;
+#X obj 18 745 unpack s f;
+#X obj 18 820 pack s f;
+#X obj 18 910 outlet;
+#X obj 18 20 inlet;
+#N canvas 2454 420 714 550 process_mouth_openness 0;
+#X obj 37 37 inlet;
+#X obj 121 132 loadbang;
+#X msg 121 157 0.5;
+#X obj 37 488 outlet;
+#X obj 40 248 hsl 200 15 0 1 0 0 empty empty screaming -2 -8 0 10 -262144
+-1 -1 9950 1;
+#X msg 37 266 screaming \$1;
+#X obj 144 489 print;
+#X obj 37 109 line 0;
+#X obj 37 208 cyclone/scale 0 1 0.5 0.4 3;
+#X msg 37 84 \$1 100;
+#X connect 0 0 9 0;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
+#X connect 7 0 8 0;
+#X connect 8 0 5 0;
+#X connect 9 0 7 0;
+#X restore 18 180 pd process_mouth_openness;
+#X obj 18 72 route rms;
+#X obj 18 47 list trim;
+#X obj 202 126 line 0;
+#N canvas 1262 337 658 430 light_process 0;
+#X obj 60 335 hsl 200 15 0 1 0 0 empty empty light_lr -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 334 335 hsl 200 15 0 1 0 0 empty empty light_UD -2 -8 0 10 -262144
+-1 -1 0 1;
+#X msg 57 353 light_lr \$1;
+#X msg 331 353 light_UD \$1;
+#X obj 57 249 homemade/glide;
+#X obj 57 173 homemade/randomBangs;
+#X obj 57 198 random 1000;
+#X obj 57 223 / 1000;
+#X obj 194 123 loadbang;
+#X obj 23 69 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X obj 152 197 loadbang;
+#X obj 331 247 homemade/glide;
+#X obj 331 171 homemade/randomBangs;
+#X obj 331 196 random 1000;
+#X obj 331 221 / 1000;
+#X obj 468 121 loadbang;
+#X msg 468 146 20;
+#X obj 426 195 loadbang;
+#X msg 194 148 20;
+#X msg 152 222 4000;
+#X msg 426 220 4000;
+#X obj 23 89 sel 0;
+#X obj 91 89 sel 1;
+#X msg 91 141 1;
+#X obj 23 114 t b b;
+#X msg 23 141 0.5;
+#X msg 57 141 0;
+#X obj 297 68 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 297 88 sel 0;
+#X obj 365 88 sel 1;
+#X msg 365 140 1;
+#X obj 297 113 t b b;
+#X msg 297 140 0.5;
+#X msg 331 140 0;
+#X obj 23 30 pattr/gsfloat face_generator light_lr_switch;
+#X obj 297 30 pattr/gsfloat face_generator light_ud_switch;
+#X obj 57 384 outlet;
+#X floatatom 57 299 5 0 0 0 - - -;
+#X floatatom 331 297 5 0 0 0 - - -;
+#X floatatom 422 353 5 0 0 0 - - -;
+#X floatatom 147 354 5 0 0 0 - - -;
+#X obj 331 272 cyclone/scale 0 1 0.35 0.65;
+#X obj 57 274 cyclone/scale 0 1 0.43 0.57;
+#X connect 0 0 2 0;
+#X connect 0 0 40 0;
+#X connect 1 0 3 0;
+#X connect 1 0 39 0;
+#X connect 2 0 36 0;
+#X connect 3 0 36 0;
+#X connect 4 0 42 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 0;
+#X connect 8 0 18 0;
+#X connect 9 0 21 0;
+#X connect 9 0 22 0;
+#X connect 10 0 19 0;
+#X connect 11 0 41 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 14 0 11 0;
+#X connect 15 0 16 0;
+#X connect 16 0 12 1;
+#X connect 17 0 20 0;
+#X connect 18 0 5 1;
+#X connect 19 0 4 1;
+#X connect 20 0 11 1;
+#X connect 21 0 24 0;
+#X connect 22 0 23 0;
+#X connect 23 0 5 0;
+#X connect 24 0 25 0;
+#X connect 24 1 26 0;
+#X connect 25 0 4 0;
+#X connect 26 0 5 0;
+#X connect 27 0 28 0;
+#X connect 27 0 29 0;
+#X connect 28 0 31 0;
+#X connect 29 0 30 0;
+#X connect 30 0 12 0;
+#X connect 31 0 32 0;
+#X connect 31 1 33 0;
+#X connect 32 0 11 0;
+#X connect 33 0 12 0;
+#X connect 34 0 9 0;
+#X connect 35 0 27 0;
+#X connect 41 0 3 0;
+#X connect 41 0 38 0;
+#X connect 42 0 2 0;
+#X connect 42 0 37 0;
+#X restore 323 180 pd light_process;
+#N canvas 2129 398 853 430 direction_random 0;
+#X obj 60 335 hsl 200 15 0 1 0 0 empty empty light_lr -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 334 335 hsl 200 15 0 1 0 0 empty empty light_UD -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 57 249 homemade/glide;
+#X obj 57 173 homemade/randomBangs;
+#X obj 57 198 random 1000;
+#X obj 57 223 / 1000;
+#X obj 194 123 loadbang;
+#X obj 23 69 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 152 197 loadbang;
+#X obj 331 247 homemade/glide;
+#X obj 331 171 homemade/randomBangs;
+#X obj 331 196 random 1000;
+#X obj 331 221 / 1000;
+#X obj 468 121 loadbang;
+#X obj 426 195 loadbang;
+#X obj 23 89 sel 0;
+#X obj 91 89 sel 1;
+#X msg 91 141 1;
+#X obj 23 114 t b b;
+#X msg 23 141 0.5;
+#X msg 57 141 0;
+#X obj 297 68 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 297 88 sel 0;
+#X obj 365 88 sel 1;
+#X msg 365 140 1;
+#X obj 297 113 t b b;
+#X msg 297 140 0.5;
+#X msg 331 140 0;
+#X obj 57 384 outlet;
+#X floatatom 57 299 5 0 0 0 - - -;
+#X floatatom 331 297 5 0 0 0 - - -;
+#X msg 57 356 big_smile \$1;
+#X floatatom 155 357 5 0 0 0 - - -;
+#X floatatom 469 354 5 0 0 0 - - -;
+#X obj 608 335 hsl 200 15 0 1 0 0 empty empty light_UD -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 605 247 homemade/glide;
+#X obj 605 171 homemade/randomBangs;
+#X obj 605 196 random 1000;
+#X obj 605 221 / 1000;
+#X obj 742 121 loadbang;
+#X obj 700 195 loadbang;
+#X obj 571 68 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 571 88 sel 0;
+#X obj 639 88 sel 1;
+#X msg 639 140 1;
+#X obj 571 113 t b b;
+#X msg 571 140 0.5;
+#X msg 605 140 0;
+#X floatatom 605 297 10 0 0 0 - - -;
+#X floatatom 771 354 5 0 0 0 - - -;
+#X msg 331 353 gender_keep_age \$1;
+#X obj 23 11 pattr/gsfloat face_generator rdm_directions_switch;
+#X msg 742 146 10;
+#X msg 468 146 10;
+#X msg 194 148 10;
+#X msg 152 222 12000;
+#X msg 426 220 12000;
+#X msg 700 220 12000;
+#X floatatom 516 213 5 0 0 0 - - -;
+#X floatatom 778 214 5 0 0 0 - - -;
+#X floatatom 242 218 5 0 0 0 - - -;
+#X msg 605 353 age_keep_lighting2 \$1;
+#X floatatom 800 175 5 0 0 0 - - -;
+#X obj 605 272 cyclone/scale 0 1 0.495 0.505;
+#X obj 331 272 cyclone/scale 0 1 0.497 0.503;
+#X obj 57 274 cyclone/scale 0 1 0.48 0.52;
+#X connect 0 0 31 0;
+#X connect 0 0 32 0;
+#X connect 1 0 50 0;
+#X connect 1 0 33 0;
+#X connect 2 0 65 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 2 0;
+#X connect 6 0 54 0;
+#X connect 7 0 15 0;
+#X connect 7 0 16 0;
+#X connect 8 0 55 0;
+#X connect 9 0 64 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 9 0;
+#X connect 13 0 53 0;
+#X connect 14 0 56 0;
+#X connect 15 0 18 0;
+#X connect 16 0 17 0;
+#X connect 17 0 3 0;
+#X connect 18 0 19 0;
+#X connect 18 1 20 0;
+#X connect 19 0 2 0;
+#X connect 20 0 3 0;
+#X connect 21 0 22 0;
+#X connect 21 0 23 0;
+#X connect 22 0 25 0;
+#X connect 23 0 24 0;
+#X connect 24 0 10 0;
+#X connect 25 0 26 0;
+#X connect 25 1 27 0;
+#X connect 26 0 9 0;
+#X connect 27 0 10 0;
+#X connect 31 0 28 0;
+#X connect 34 0 61 0;
+#X connect 34 0 49 0;
+#X connect 35 0 63 0;
+#X connect 36 0 37 0;
+#X connect 37 0 38 0;
+#X connect 38 0 35 0;
+#X connect 39 0 52 0;
+#X connect 40 0 57 0;
+#X connect 41 0 42 0;
+#X connect 41 0 43 0;
+#X connect 42 0 45 0;
+#X connect 43 0 44 0;
+#X connect 44 0 36 0;
+#X connect 45 0 46 0;
+#X connect 45 1 47 0;
+#X connect 46 0 35 0;
+#X connect 47 0 36 0;
+#X connect 50 0 28 0;
+#X connect 51 0 7 0;
+#X connect 51 0 21 0;
+#X connect 51 0 41 0;
+#X connect 52 0 36 1;
+#X connect 53 0 10 1;
+#X connect 54 0 3 1;
+#X connect 55 0 2 1;
+#X connect 56 0 9 1;
+#X connect 57 0 35 1;
+#X connect 58 0 9 0;
+#X connect 59 0 35 0;
+#X connect 60 0 2 0;
+#X connect 61 0 28 0;
+#X connect 62 0 59 0;
+#X connect 62 0 58 0;
+#X connect 62 0 60 0;
+#X connect 63 0 61 0;
+#X connect 63 0 48 0;
+#X connect 64 0 50 0;
+#X connect 64 0 30 0;
+#X connect 65 0 31 0;
+#X connect 65 0 29 0;
+#X restore 443 180 pd direction_random;
+#X msg 202 101 \$1 6000;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 65 0;
+#X connect 3 0 6 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 1;
+#X connect 6 0 7 0;
+#X connect 6 1 4 0;
+#X connect 7 0 67 0;
+#X connect 8 0 12 0;
+#X connect 9 0 13 0;
+#X connect 10 0 14 0;
+#X connect 11 0 15 0;
+#X connect 12 0 6 0;
+#X connect 13 0 6 0;
+#X connect 14 0 6 0;
+#X connect 15 0 6 0;
+#X connect 16 0 17 0;
+#X connect 17 0 6 0;
+#X connect 18 0 29 0;
+#X connect 19 0 30 0;
+#X connect 20 0 31 0;
+#X connect 21 0 32 0;
+#X connect 22 0 33 0;
+#X connect 23 0 34 0;
+#X connect 24 0 35 0;
+#X connect 25 0 36 0;
+#X connect 26 0 37 0;
+#X connect 27 0 38 0;
+#X connect 28 0 39 0;
+#X connect 29 0 6 0;
+#X connect 30 0 6 0;
+#X connect 31 0 6 0;
+#X connect 32 0 6 0;
+#X connect 33 0 6 0;
+#X connect 34 0 6 0;
+#X connect 35 0 6 0;
+#X connect 36 0 6 0;
+#X connect 37 0 6 0;
+#X connect 38 0 6 0;
+#X connect 39 0 6 0;
+#X connect 40 0 45 0;
+#X connect 41 0 46 0;
+#X connect 42 0 47 0;
+#X connect 43 0 48 0;
+#X connect 44 0 49 0;
+#X connect 45 0 6 0;
+#X connect 46 0 6 0;
+#X connect 47 0 6 0;
+#X connect 48 0 6 0;
+#X connect 49 0 6 0;
+#X connect 50 0 51 0;
+#X connect 51 0 28 0;
+#X connect 51 0 27 0;
+#X connect 51 0 26 0;
+#X connect 51 0 25 0;
+#X connect 51 0 24 0;
+#X connect 51 0 23 0;
+#X connect 51 0 22 0;
+#X connect 51 0 21 0;
+#X connect 52 0 53 0;
+#X connect 53 0 18 0;
+#X connect 53 0 19 0;
+#X connect 53 0 20 0;
+#X connect 54 0 55 0;
+#X connect 55 0 16 0;
+#X connect 56 0 57 0;
+#X connect 57 0 8 0;
+#X connect 57 0 9 0;
+#X connect 57 0 10 0;
+#X connect 57 0 11 0;
+#X connect 58 0 59 0;
+#X connect 59 0 1 0;
+#X connect 59 0 40 0;
+#X connect 59 0 41 0;
+#X connect 59 0 42 0;
+#X connect 59 0 43 0;
+#X connect 59 0 44 0;
+#X connect 60 0 75 0;
+#X connect 61 0 62 0;
+#X connect 62 0 0 0;
+#X connect 63 0 64 0;
+#X connect 64 0 66 1;
+#X connect 65 0 66 0;
+#X connect 65 1 63 0;
+#X connect 66 0 67 0;
+#X connect 68 0 71 0;
+#X connect 69 0 65 0;
+#X connect 70 0 69 0;
+#X connect 71 0 70 0;
+#X connect 72 0 2 0;
+#X connect 73 0 65 0;
+#X connect 74 0 65 0;
+#X connect 75 0 72 0;
+#X restore 992 203 pd usefull_directions;
+#X text 990 707 Save directions to file------------;
+#X obj 992 955 t a;
+#X obj 677 526 hsl 200 15 0 1 0 0 empty empty blur_amount -2 -8 0 10
+-260097 -1 -1 0 1;
+#X obj 677 642 hsl 200 15 0 1 0 0 empty empty mask_amount -2 -8 0 10
+-260097 -1 -1 0 1;
+#X msg 674 881 /blur_amount \$1;
+#X msg 674 905 /mask_amount \$1;
+#X floatatom 12 271 5 0 0 0 - - -;
+#X obj 318 361 homemade/randomBangs;
+#X obj 455 312 loadbang;
+#X obj 318 340 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 318 278 pattr/gsfloat face_generator rdm_user_face;
+#X obj 318 16 cnv 15 100 20 empty empty New_user_input 20 12 0 14 -4032
+-66577 0;
+#X obj 318 36 r new_user_input;
+#X obj 318 114 spigot;
+#X obj 357 94 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 674 81 pattr/gsfloat face_generator user_vs_dataset;
+#X obj 674 428 pattr/gsfloat face_generator blur_amount;
+#X obj 674 546 pattr/gsfloat face_generator mask_amount;
+#X obj 992 81 spigot;
+#X obj 1043 64 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 1043 13 loadbang;
+#X msg 1043 38 1;
+#X obj 992 142 list prepend rms;
+#X msg 12 221 \$1 0;
+#X obj 674 141 line 0;
+#X msg 674 464 \$1 5000;
+#X obj 674 489 line 0;
+#X msg 674 581 \$1 5000;
+#X obj 674 606 line 0;
+#X msg 674 230 \$1 5000;
+#X obj 674 255 line 0;
+#X obj 674 195 pattr/gsfloat face_generator jitter_speed;
+#X msg 674 346 \$1 5000;
+#X obj 674 371 line 0;
+#X obj 674 311 pattr/gsfloat face_generator jitter_amplitude;
+#X obj 318 175 t b b b;
+#X msg 341 199 0;
+#X obj 357 60 pattr/gsfloat face_generator new_user_input_switch;
+#X obj 294 115 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 992 1002 print;
+#X msg 674 116 \$1 10000;
+#X obj 318 150 delay 2000;
+#X obj 385 101 r delay_user_input_to_face_encode;
+#X obj 385 126 - 250;
+#X msg 455 337 5;
+#X msg 11 786 /state \$1;
+#X connect 0 0 5 0;
+#X connect 1 0 14 0;
+#X connect 2 0 13 0;
+#X connect 3 0 19 0;
+#X connect 4 0 20 0;
+#X connect 5 0 28 0;
+#X connect 6 0 7 0;
+#X connect 7 0 41 0;
+#X connect 8 0 15 0;
+#X connect 9 0 11 0;
+#X connect 10 0 12 0;
+#X connect 11 0 28 0;
+#X connect 12 0 28 0;
+#X connect 13 0 28 0;
+#X connect 14 0 28 0;
+#X connect 15 0 16 0;
+#X connect 16 0 28 0;
+#X connect 17 0 18 0;
+#X connect 18 0 16 0;
+#X connect 19 0 28 0;
+#X connect 20 0 28 0;
+#X connect 21 0 22 0;
+#X connect 22 0 28 0;
+#X connect 26 0 27 0;
+#X connect 27 0 41 0;
+#X connect 28 0 29 0;
+#X connect 31 0 32 0;
+#X connect 32 0 63 0;
+#X connect 32 0 30 0;
+#X connect 32 0 85 0;
+#X connect 33 0 30 1;
+#X connect 34 0 46 0;
+#X connect 35 0 58 0;
+#X connect 38 0 6 0;
+#X connect 39 0 6 0;
+#X connect 41 0 29 0;
+#X connect 42 0 44 0;
+#X connect 43 0 45 0;
+#X connect 44 0 28 0;
+#X connect 45 0 28 0;
+#X connect 47 0 3 0;
+#X connect 48 0 84 0;
+#X connect 49 0 47 0;
+#X connect 50 0 49 0;
+#X connect 52 0 53 0;
+#X connect 53 0 21 0;
+#X connect 53 0 81 0;
+#X connect 54 0 53 1;
+#X connect 55 0 80 0;
+#X connect 56 0 65 0;
+#X connect 57 0 67 0;
+#X connect 58 0 36 0;
+#X connect 58 0 62 0;
+#X connect 59 0 58 1;
+#X connect 60 0 61 0;
+#X connect 61 0 59 0;
+#X connect 62 0 39 0;
+#X connect 63 0 34 0;
+#X connect 64 0 13 0;
+#X connect 65 0 66 0;
+#X connect 66 0 44 0;
+#X connect 67 0 68 0;
+#X connect 68 0 45 0;
+#X connect 69 0 70 0;
+#X connect 70 0 5 0;
+#X connect 71 0 69 0;
+#X connect 72 0 73 0;
+#X connect 73 0 14 0;
+#X connect 74 0 72 0;
+#X connect 75 1 76 0;
+#X connect 75 2 17 0;
+#X connect 76 0 9 0;
+#X connect 77 0 54 0;
+#X connect 78 0 81 0;
+#X connect 80 0 64 0;
+#X connect 81 0 75 0;
+#X connect 82 0 83 0;
+#X connect 83 0 81 1;
+#X connect 84 0 47 1;
+#X connect 85 0 28 0;
