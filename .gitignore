@@ -5,6 +5,7 @@
 **/*.pt
 **/train.tfrecord-*
 **/*.ipynb
+**/*egg-info
 
 # face_generator ignores
 
@@ -19,4 +20,8 @@ main/*.wav
 
 # melody_generator ignores
 
+voice_generator/data/*
+voice_generator/generated/*
+voice_generator/GM-Voice/*
+voice_generator/notebooks/*
 
