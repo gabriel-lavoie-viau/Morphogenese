@@ -1,0 +1,13 @@
+#N canvas 3136 366 491 300 12;
+#X msg 62 56 open 0;
+#X obj 150 34 hsl 128 15 0 255 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 4500 1;
+#X msg 62 82 close 0;
+#X msg 61 29 devices;
+#X obj 147 199 comport 0 9600;
+#X obj 147 71 cyclone/scale 0 255 1 255 3;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 4 0;
+#X connect 3 0 4 0;
+#X connect 5 0 4 0;
