@@ -1,1 +1,11 @@
-# Byte-compiled / optimized / DLL files
+# general
+
+**/__pycache__/
+**/*.pt
+
+# face_generator ignores
+
+face_generator/exported_images/*
+face_generator/Inputs/*
+face_generator/.git/*
+
