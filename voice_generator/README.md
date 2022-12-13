@@ -1,4 +1,4 @@
-This section is using the library DDSP_gm2 with minor tweaks. The library is an adaptation of the DDSP library from magenta.
+### This section is using the library DDSP_gm2 with minor tweaks. The library is an adaptation of the DDSP library from magenta.
 
 For more info:
 
