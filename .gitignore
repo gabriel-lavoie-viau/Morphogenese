@@ -1,7 +1,8 @@
-# general
+# general ignores
 
 **/__pycache__/
 **/*.pt
+**/*.ipynb
 
 # face_generator ignores
 
@@ -9,3 +10,7 @@ face_generator/exported_images/*
 face_generator/Inputs/*
 face_generator/.git/*
 
+# main ignores
+
+main/recorded/*
+main/*.wav
