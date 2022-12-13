@@ -3,6 +3,7 @@
 **/__pycache__/
 **/__init__.py
 **/*.pt
+**/train.tfrecord-*
 **/*.ipynb
 
 # face_generator ignores
