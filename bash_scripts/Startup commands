@@ -1,0 +1,5 @@
+gnome-terminal --tab --title VOICE_GENERATOR -e /home/gabriel/Documents/SYNTHETIC/bash_scripts/start_voice_generator.sh
+
+gnome-terminal --tab --title FACE_GENERATOR -e /home/gabriel/Documents/SYNTHETIC/bash_scripts/start_face_generator.sh
+
+puredata -font-size 11 -font-face "clearlyu arabic" /home/gabriel/Documents/SYNTHETIC/main/main_v3.pd
